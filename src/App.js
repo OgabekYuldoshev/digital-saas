@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
+import * as Layouts from "./layouts";
+import { publicRoutes, privateRoutes } from "./routes";
+import useAuth from "./module/auth/hooks/useAuth";
+
+const App = () => {
+  const { isAuthenticated, isFetched } = useAuth();
+
+  if (!isFetched) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <Layouts.Auth>
+        <Switch>
+          {publicRoutes.map((route, index) => {
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                exact
+                render={(props) => <route.component {...props} />}
+              />
+            );
+          })}
+          <Redirect to="/login" />
+        </Switch>
+      </Layouts.Auth>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layouts.Base>
+      <Switch>
+        {privateRoutes.map((route, index) => {
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              exact
+              render={(props) => <route.component {...props} />}
+            />
+          );
+        })}
+        <Redirect to="/dashboard" />
+      </Switch>
+    </Layouts.Base>
   );
-}
+};
 
 export default App;

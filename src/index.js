@@ -1,17 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "core-js";
+import "./bootstrap";
+import React, { Suspense } from "react";
+import ReactDom from "react-dom";
+import { ConnectedRouter } from "connected-react-router";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import config from "./connections";
+import { persist, store } from "./store";
+import { history } from "./services";
+import "./assets/styles/index.scss";
+import App from "./App";
+import { Auth } from "./module/auth/containers";
+import "antd/dist/antd.min.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const queryClient = new QueryClient();
+
+ReactDom.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Suspense fallback="">
+      <Provider {...{ store }}>
+        <PersistGate loading={null} persistor={persist}>
+          <QueryClientProvider client={queryClient}>
+            <Auth>
+              <ConnectedRouter {...{ history }}>
+                {config.app.env === "development" && (
+                  <ReactQueryDevtools position="bottom-right" />
+                )}
+                <App />
+              </ConnectedRouter>
+            </Auth>
+          </QueryClientProvider>
+        </PersistGate>
+      </Provider>
+    </Suspense>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

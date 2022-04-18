@@ -1,0 +1,31 @@
+.wrapper {
+    display: block;
+    margin: auto;
+
+    .header {
+        background: white;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .sidebarRight {
+        background: white;
+        padding: 10px;
+        border-right: 1px solid lightgray;
+    }
+
+    .sidebarLeft {
+        background: white;
+        padding: 10px;
+        border-left: 1px solid lightgray;
+    }
+
+    .content {
+        padding: 10px;
+        height: 86vh;
+    }
+
+    .footer {
+        background: white;
+        border: 1px solid lightgray;
+    }
+}
