@@ -12,11 +12,11 @@ const BaseLayouts = ({ children }) => {
         <Navbar />
       </Layout.Header>
       <Layout>
-        <Layout.Sider className={classes.sidebarRight}>
+        <Layout.Sider width={250} className={classes.sidebarRight}>
           <SideBar />
         </Layout.Sider>
         <Layout.Content className={classes.content}>{children}</Layout.Content>
-        <Layout.Sider className={classes.sidebarLeft}>
+        <Layout.Sider width={250} className={classes.sidebarLeft}>
           <RightBar />
         </Layout.Sider>
       </Layout>
