@@ -11,8 +11,6 @@ const Auth = ({ children }) => {
     (state) => state.auth.token
   );
 
-  console.log(token);
-
   useQuery(
     ["auth", "profile", token],
     async () => {

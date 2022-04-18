@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .drag {
+        background: white;
+        padding: 10px;
+        width: 300px;
+
+        .dragger {
+            background: gray;
+            margin-top: 10px;
+        }
+    }
+}
