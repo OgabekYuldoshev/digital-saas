@@ -1,5 +1,4 @@
 import { Layout } from "antd";
-import Footer from "../../container/Footer";
 import Navbar from "../../container/Navbar";
 import RightBar from "../../container/RightBar";
 import SideBar from "../../container/SideBar";
@@ -20,9 +19,6 @@ const BaseLayouts = ({ children }) => {
           <RightBar />
         </Layout.Sider>
       </Layout>
-      <Layout.Footer className={classes.footer}>
-        <Footer />
-      </Layout.Footer>
     </Layout>
   );
 };
