@@ -2,7 +2,7 @@ import { EyeOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 import React from "react";
 import { useQueryParams } from "react-router-query-hooks"
-import classes from "./TaskCard.module.scss";
+import classes from "./PlanCard.module.scss";
 
 const TaskCard = ({ task }) => {
   const [query, { pushQuery }] = useQueryParams()

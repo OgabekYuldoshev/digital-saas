@@ -1,4 +1,4 @@
-import classes from "./TasksPage.module.scss";
+import classes from "./PlansPage.module.scss";
 import { useQueryParams } from "react-router-query-hooks";
 import Draggable from "./components/Draggable";
 import { Button, PageHeader, Modal } from "antd";
@@ -14,15 +14,15 @@ const Darshboard = () => {
       <PageHeader
         className="site-page-header"
         onBack={() => window.history.back()}
-        title="Tasks"
+        title="Plans"
         // subTitle="This is a subtitle"
         extra={[
           <Button
             type="primary"
-            onClick={() => history.push("/tasks/create")}
+            onClick={() => history.push("/plans/create")}
             key="1"
           >
-            Add task
+            Add plan
           </Button>,
         ]}
       >

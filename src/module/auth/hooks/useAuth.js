@@ -14,7 +14,13 @@ const useAuth = () => {
     dispatch(Actions.Logout.request());
   };
 
-  return { isAuthenticated, isFetched, token, profile, methods: { logout } };
+  return {
+    isAuthenticated,
+    isFetched,
+    token,
+    profile,
+    methods: { logout },
+  };
 };
 
 export default useAuth;
