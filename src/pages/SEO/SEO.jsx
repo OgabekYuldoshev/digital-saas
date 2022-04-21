@@ -1,10 +1,10 @@
 import React from 'react'
-import Inprogress from '../../components/Inprogress/Inprogress'
-import style from './SEO.module.scss';
+import Inprogress from '../../components/InProgress/InProgress'
+import classes from './SEO.module.scss';
 
 const SEO = () => {
   return (
-    <div className={style.seo}>
+    <div className={classes.wrapper}>
         <Inprogress/>
     </div>
   )

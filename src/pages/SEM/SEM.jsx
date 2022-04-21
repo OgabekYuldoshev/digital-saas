@@ -1,10 +1,10 @@
 import React from 'react'
-import Inprogress from '../../components/Inprogress/Inprogress'
-import style from './SEM.module.scss';
+import Inprogress from '../../components/InProgress/InProgress'
+import classes from './SEM.module.scss';
 
 const SEM = () => {
   return (
-    <div className={style.sem}>
+    <div className={classes.wrapper}>
         <Inprogress/>
     </div>
   )

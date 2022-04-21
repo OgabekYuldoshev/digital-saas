@@ -1,13 +1,13 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png';
-import style from './loading.module.scss';
+import classes from './Loading.module.scss';
 import ReactLoading from 'react-loading';
 
 const Loading = () => {
   return (
-    <div className={style.loading}>
-        <img className={style.loading__img} src={logo} alt="logo" />
-        <ReactLoading type={'spin'} color='#000' height={'50px'} width={'50px'}/>
+    <div className={classes.loading}>
+      <img className={classes.loading__img} src={logo} alt="logo" />
+      <ReactLoading type={'spin'} color='#1890ff' height={'25px'} width={'25px'} />
     </div>
   )
 }

@@ -14,12 +14,13 @@ import "./assets/styles/index.scss";
 import App from "./App";
 import { Auth } from "./module/auth/containers";
 import "antd/dist/antd.min.css";
+import Loading from "./components/Loading";
 
 const queryClient = new QueryClient();
 
 ReactDom.render(
   <React.StrictMode>
-    <Suspense fallback="">
+    <Suspense fallback={<Loading />}>
       <Provider {...{ store }}>
         <PersistGate loading={null} persistor={persist}>
           <QueryClientProvider client={queryClient}>

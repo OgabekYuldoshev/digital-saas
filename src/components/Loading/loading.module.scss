@@ -1,10 +1,12 @@
-.loading{
+.loading {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    &__img{
+
+    &__img {
         width: 300px;
+        margin-bottom: 1rem;
     }
 }
