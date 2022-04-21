@@ -8,6 +8,8 @@ import CreatePlansPage from "./pages/Plans/containers/Create";
 import UpdatePlansPage from "./pages/Plans/containers/Update";
 import AdsPage from "./pages/Ads";
 import AdsDataPage from "./pages/AdsData";
+import SEO from "./pages/SEO/SEO.jsx";
+import SEM from "./pages/SEM/SEM";
 
 export const publicRoutes = [
   {
@@ -74,5 +76,17 @@ export const privateRoutes = [
     name: "Ads Data",
     path: "/ads-data",
     component: AdsDataPage,
+  },
+
+  {
+    name: "SEO",
+    path: "/seo",
+    component: SEO,
+  },
+
+  {
+    name: "SEM",
+    path: "/sem",
+    component: SEM,
   },
 ];
