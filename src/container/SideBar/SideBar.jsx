@@ -88,10 +88,27 @@ const SideBar = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="/command">
-        <Link to="/ads-data">
+        <Link to="/command">
           Команда
         </Link>
       </Menu.Item>
+      <Menu.SubMenu title="Settings" key="/settings">
+      <Menu.Item key="/settings/profile">
+        <Link to="/settings/profile">
+          Profile
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="/settings/networks">
+        <Link to="/settings/networks">
+          Social networks
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="/settings/accsess">
+        <Link to="/settings/accsess">
+          Accsess
+        </Link>
+      </Menu.Item>
+      </Menu.SubMenu>
     </Menu>
   );
 };
