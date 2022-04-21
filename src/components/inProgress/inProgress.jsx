@@ -4,8 +4,9 @@ import './Inprogress.scss';
 
 const Inprogress = () => {
   return (
-    <div>
+    <div className='inprogress__container'>
         <img className='inprogress__img' src={razratobka_ds} alt="razrabotka" />
+        <h3 className='inprogress__title'>Этот раздел находится в разработке</h3>
     </div>
   )
 }
