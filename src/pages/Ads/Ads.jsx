@@ -31,6 +31,14 @@ const Ads = () => {
                         </iframe>
                     </Box>
                 </TabPane>
+                <TabPane tab="Telegram" key="3">
+                    <Box>
+                        <iframe className={classes.frame}
+                            title="Telegram"
+                            src="https://promote.telegram.org/">
+                        </iframe>
+                    </Box>
+                </TabPane>
             </Tabs>
         </>
     )
