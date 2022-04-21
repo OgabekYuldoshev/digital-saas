@@ -13,4 +13,13 @@
         gap: 1rem;
         align-items: center;
     }
+
+    .avatar {
+        background-color: goldenrod;
+        cursor: pointer;
+    }
+
+    &_logout {
+        color: red;
+    }
 }

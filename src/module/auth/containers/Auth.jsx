@@ -15,7 +15,7 @@ const Auth = ({ children }) => {
     ["auth", "profile", token],
     async () => {
       const { data } = await Api.Profile();
-      console.log(data);
+
       return data;
     },
     {

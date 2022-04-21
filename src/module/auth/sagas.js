@@ -4,10 +4,7 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import * as Actions from "./actions";
 import * as Constants from "./constants";
 
-export function* Logout(action) {
-  try {
-    // eslint-disable-next-line no-empty
-  } catch (e) {}
+export function* Logout() {
   yield put(push("/"));
   yield put(Actions.Logout.success());
 }
