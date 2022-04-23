@@ -1,6 +1,6 @@
 import classes from './Accsess.module.scss'
 import { Table, Tag, Space } from 'antd';
-import { useSelector } from 'react-redux';
+
 const Accsess = () => {
   const data = [
     {
@@ -30,7 +30,7 @@ const Accsess = () => {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: text => <a>{text}</a>,
+      render: text => <span>{text}</span>,
     },
     {
       title: 'Age',
@@ -67,8 +67,8 @@ const Accsess = () => {
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <span>Invite {record.name}</span>
+          <span>Delete</span>
         </Space>
       ),
     },
