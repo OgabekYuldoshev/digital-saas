@@ -8,8 +8,11 @@ import CreatePlansPage from "./pages/Plans/containers/Create";
 import UpdatePlansPage from "./pages/Plans/containers/Update";
 import AdsPage from "./pages/Ads";
 import AdsDataPage from "./pages/AdsData";
-import SEO from "./pages/SEO/SEO.jsx";
-import SEM from "./pages/SEM/SEM";
+import SEOPage from "./pages/SEO";
+import SEMPage from "./pages/SEM";
+import ProfilePage from "./pages/Settings/Profile";
+import AccsessPage from "./pages/Settings/Accsess";
+import SocialNetworkPage from "./pages/Settings/Social-network";
 
 export const publicRoutes = [
   {
@@ -81,12 +84,28 @@ export const privateRoutes = [
   {
     name: "SEO",
     path: "/seo",
-    component: SEO,
+    component: SEOPage,
   },
 
   {
     name: "SEM",
     path: "/sem",
-    component: SEM,
+    component: SEMPage,
+  },
+
+  {
+    name: "Profile",
+    path: "/settings/profile",
+    component: ProfilePage,
+  },
+  {
+    name: "Access",
+    path: "/settings/accsess",
+    component: AccsessPage,
+  },
+  {
+    name: "Social-network",
+    path: "/settings/networks",
+    component: SocialNetworkPage,
   },
 ];

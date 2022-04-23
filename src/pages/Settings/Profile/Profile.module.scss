@@ -1,0 +1,32 @@
+.wrapper {
+  h2 {
+    text-align: center;
+    color: rgb(24, 144, 255);
+    margin: 30px;
+    font-size: 30px;
+  }
+
+  .input_container {
+    width: 90%;
+    margin: 0 auto;
+
+    .input_box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      .input_block {
+        width: 48%;
+        margin: 10px 0;
+      }
+
+      .btn_block {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+    }
+  }
+}
