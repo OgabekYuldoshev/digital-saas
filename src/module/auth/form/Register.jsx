@@ -61,7 +61,6 @@ const Register = ({
         password: "",
         conformationPassword: "",
       }}
-      enableReinitialize
       {...{ validationSchema }}
     >
       {(props) => <Form>{children(props)}</Form>}

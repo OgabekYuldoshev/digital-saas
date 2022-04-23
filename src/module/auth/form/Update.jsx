@@ -1,21 +1,22 @@
 import React from "react";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
-import * as Mappers from "../mappers";
 import * as Api from "../api";
 import { useMutation } from "react-query";
 
 
-const Reset = ({
+const Update = ({
+  val,
   onSuccess,
   onError,
   onSettled,
   children,
 }) => {
+
   const mutation = useMutation(
     async (values) => {
-      const { data } = await Api.Reset({ values });
-      return Mappers.Tokens(data);
+      const { data } = await Api.Update({ values });
+      return data;
     },
     {
       onSuccess,
@@ -38,19 +39,26 @@ const Reset = ({
   };
 
   const validationSchema = yup.object().shape({
-    email: yup.string().email().required(),
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    phoneNumber: yup.string().required(),
+    type: yup.string().required(),
   });
 
   return (
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
-        email: "",
+        firstName: val.firstName || "",
+        lastName: val.lastName || "",
+        phoneNumber: val.phoneNumber || "",
+        type: val.type || "",
       }}
+      enableReinitialize
       {...{ validationSchema }}>
       {(props) => <Form>{children(props)}</Form>}
     </Formik>
   );
 };
 
-export default Reset;
+export default Update;

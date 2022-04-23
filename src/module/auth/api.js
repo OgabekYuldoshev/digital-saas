@@ -22,3 +22,17 @@ export const Reset = ({ values }) =>
   http.request.post(`/api/user/auth/password/reset/`, {
     email: values.email,
   });
+
+export const Update = ({ values }) =>
+  http.request.put(`/api/user/auth/user/`, {
+    phone_number: values.phoneNumber,
+    type: values.type,
+    last_name: values.lastName,
+    first_name: values.firstName,
+  });
+
+export const UpdatePassword = ({ values }) =>
+  http.request.post(`/api/user/auth/password/change/`, {
+    password: values.password,
+    password1: values.confirmPassword,
+  });
