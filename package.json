@@ -28,7 +28,7 @@
     "react-loading": "^2.0.3",
     "react-query": "^3.35.0",
     "react-redux": "^8.0.0",
-    "react-router-dom": "5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-router-query-hooks": "^2.2.0",
     "react-scripts": "5.0.1",
     "redux": "^4.1.2",

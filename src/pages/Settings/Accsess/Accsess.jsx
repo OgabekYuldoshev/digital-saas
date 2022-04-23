@@ -1,5 +1,6 @@
 import classes from './Accsess.module.scss'
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag, Space, PageHeader, Row, Col } from 'antd';
+import Box from '../../../components/Box';
 
 const Accsess = () => {
   const data = [
@@ -76,8 +77,19 @@ const Accsess = () => {
 
   return (
     <div className={classes.wrapper}>
-      <h2>Accsess</h2>
-      <Table columns={columns} dataSource={data} pagination={false} />
+      <PageHeader
+        className="site-page-header"
+        onBack={() => window.history.back()}
+        title="Accsess"
+      />
+      <Box>
+        <h2>Accsess</h2>
+        <Row>
+          <Col span={24}>
+            <Table columns={columns} dataSource={data} pagination={false} />
+          </Col>
+        </Row>
+      </Box>
     </div>
   )
 }

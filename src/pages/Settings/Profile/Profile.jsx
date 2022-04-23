@@ -27,7 +27,6 @@ const Profile = () => {
               </Col>
               <Col span={8}>
                 <Input onChange={handleChange} name='lastName' placeholder="LastName" defaultValue={profile?.lastName} />
-
               </Col>
               <Col span={8}>
                 <Input disabled={true} value={profile?.email} name='email' placeholder="Email" />
