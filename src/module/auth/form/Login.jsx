@@ -20,8 +20,7 @@ const Login = ({
   const mutation = useMutation(
     async (values) => {
       const { data } = await Api.Login({ values });
-      dispatch(Actions.Login.request(data));
-      return Mappers.Login(data);
+      return  Mappers.Tokens(data);
     },
     {
       onSuccess,
@@ -34,11 +33,11 @@ const Login = ({
     values,
     { isSubmitting, setSubmitting }
   ) => {
-    console.log(values);
     if (!isSubmitting) {
       setSubmitting(true);
       mutation.mutate(values, {
         onError: () => setSubmitting(false),
+        onSuccess: (tokens)=>dispatch(Actions.Login.request({tokens}))
       });
     }
   };

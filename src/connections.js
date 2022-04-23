@@ -10,7 +10,7 @@ const config = {
     list: ["uz", "oz", "ru", "en"],
   },
   api: {
-    baseUrl: "https://blogpostapiserver.herokuapp.com",
+    baseUrl: "http://dsaas.uz",
   },
   sentry: {
     dsn: process.env.REACT_APP_SENTRY_DSN,

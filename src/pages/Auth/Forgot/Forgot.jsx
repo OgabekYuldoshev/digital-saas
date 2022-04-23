@@ -1,6 +1,6 @@
 import classes from "./ForgotPage.module.scss";
 
-import { LoginForm } from "../../../module/auth/form";
+import { ResetForm } from "../../../module/auth/form";
 import {
   Button,
   Col,
@@ -19,7 +19,7 @@ const SignIn = () => {
   return (
     <div className={classes.wrapper}>
       <Box>
-        <LoginForm
+        <ResetForm
           onSuccess={() => {
             message.success(t("forgot_success"));
           }}
@@ -27,7 +27,7 @@ const SignIn = () => {
             message.error(t("forgot_error"));
           }}
         >
-          {({ handleChange, isValid, dirty }) => (
+          {({ handleChange, isValid, dirty, isSubmitting }) => (
             <>
               <Row gutter={[16, 16]}>
                 <Col className={classes.header} span={24}>
@@ -56,7 +56,7 @@ const SignIn = () => {
               </Row>
             </>
           )}
-        </LoginForm>
+        </ResetForm>
       </Box>
     </div>
   );

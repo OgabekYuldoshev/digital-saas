@@ -5,7 +5,10 @@ import * as Constants from "./constants";
 const initialState = {
   isAuthenticated: false,
   isFetched: true,
-  token: "",
+  tokens: {
+    accessToken: "",
+    refreshToken: "",
+  },
   profile: {
     id: "",
     firstName: "",
@@ -27,18 +30,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         ...initialState,
+        tokens: {
+          ...state.tokens,
+          ...initialState.tokens,
+        },
         isAuthenticated: false,
         isFetched: true,
       };
     }
     case Constants.LOGIN.REQUEST: {
-      const { token } = action.payload;
-      console.log(token);
+      const { tokens } = action.payload;
+
       return {
         ...state,
         isAuthenticated: true,
         isFetched: false,
-        token,
+        tokens,
       };
     }
     case Constants.PROFILE.REQUEST: {
@@ -59,9 +66,9 @@ const reducer = (state = initialState, action) => {
 const isFetchedTransform = createTransform(
   (state) => state,
   (isFetched, key, stored) => {
-    const token = JSON.parse(stored.token);
+    const tokens = JSON.parse(stored.tokens);
 
-    return !token;
+    return !tokens.accessToken;
   },
   { whitelist: ["isFetched"] }
 );
@@ -69,7 +76,7 @@ const isFetchedTransform = createTransform(
 const persistConfig = {
   key: "auth",
   storage: persistStorage,
-  whitelist: ["isFetched", "token", "theme"],
+  whitelist: ["isFetched", "tokens", "theme"],
   transforms: [isFetchedTransform],
 };
 

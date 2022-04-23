@@ -1,12 +1,12 @@
 import React from "react";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
+import * as Mappers from "../mappers";
 import * as Api from "../api";
 import { useMutation } from "react-query";
-import { get } from "lodash";
 
 
-const Register = ({
+const Reset = ({
   onSuccess,
   onError,
   onSettled,
@@ -14,9 +14,8 @@ const Register = ({
 }) => {
   const mutation = useMutation(
     async (values) => {
-      const { data } = await Api.Register({ values });
-
-      return get(data, "data") || "";
+      const { data } = await Api.Reset({ values });
+      return Mappers.Tokens(data);
     },
     {
       onSuccess,
@@ -29,44 +28,30 @@ const Register = ({
     values,
     { isSubmitting, setSubmitting }
   ) => {
+
     if (!isSubmitting) {
       setSubmitting(true);
       mutation.mutate(values, {
-        onError: () => setSubmitting(false),
+        onError: () => setSubmitting(false)
       });
     }
   };
 
   const validationSchema = yup.object().shape({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    phone: yup.string().required(),
-    email: yup.string().required(),
-    confirmationPassword: yup
-      .string()
-      .when("password", (password, field) =>
-        password ? field.required().oneOf([yup.ref("password")]) : field
-      ),
-    password: yup.string().min(6).required(),
+    email: yup.string().email().required(),
   });
 
   return (
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
-        firstName: "",
-        lastName: "",
-        phone: "",
         email: "",
-        password: "",
-        conformationPassword: "",
       }}
       enableReinitialize
-      {...{ validationSchema }}
-    >
+      {...{ validationSchema }}>
       {(props) => <Form>{children(props)}</Form>}
     </Formik>
   );
 };
 
-export default Register;
+export default Reset;

@@ -7,7 +7,7 @@ const useAuth = () => {
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isFetched = useSelector((state) => state.auth.isFetched);
-  const token = useSelector((state) => state.auth.token);
+  const tokens = useSelector((state) => state.auth.tokens);
   const profile = useSelector((state) => state.auth.profile);
 
   const logout = () => {
@@ -17,7 +17,7 @@ const useAuth = () => {
   return {
     isAuthenticated,
     isFetched,
-    token,
+    tokens,
     profile,
     methods: { logout },
   };

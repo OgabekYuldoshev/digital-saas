@@ -16,7 +16,7 @@ i18n.init({
 http.init({
   configFn: () => {
     const state = store.getState();
-    const token = state.auth.token;
+    const token = state.auth.tokens.accessToken;
     return {
       baseURL: config.api.baseUrl,
       headers: {
