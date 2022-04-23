@@ -1,7 +1,7 @@
 import "core-js";
 import "./bootstrap";
 import React, { Suspense } from "react";
-import { createRoot } from "react-dom/client";
+import ReactDom from "react-dom";
 import { ConnectedRouter } from "connected-react-router";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -16,9 +16,8 @@ import { Auth } from "./module/auth/containers";
 import "antd/dist/antd.min.css";
 
 const queryClient = new QueryClient();
-const root = createRoot(document.getElementById("root"))
 
-root.render(
+ReactDom.render(
   <React.StrictMode>
     <Suspense fallback="">
       <Provider {...{ store }}>
@@ -37,6 +36,5 @@ root.render(
       </Provider>
     </Suspense>
   </React.StrictMode>,
-)
-
-
+  document.getElementById("root")
+);
