@@ -15,13 +15,13 @@ const Profile = () => {
       <div className={classes.input_container}>
         <div className={classes.input_box}>
           <div className={classes.input_block}>
-            <Input size='large' placeholder="F.I.O" />
+            <Input size='large' placeholder="Username*" />
           </div>
           <div className={classes.input_block}>
-            <Input size='large' placeholder="Email" />
+            <Input size='large' placeholder="Email*" />
           </div>
           <div className={classes.input_block}>
-            <Input size='large' placeholder="Phone Number" />
+            <Input size='large' placeholder="Phone Number*" />
           </div>
           <div className={classes.input_block}>
             <Select size='large' defaultValue="lucy" style={{ width: '100%' }} onChange={handleChange}>
@@ -37,10 +37,10 @@ const Profile = () => {
         <Divider />
         <div className={classes.input_box}>
           <div className={classes.input_block}>
-            <Input size='large' type={'password'} placeholder="Password" />
+            <Input size='large' type={'password'} placeholder="Password*" />
           </div>
           <div className={classes.input_block}>
-            <Input size='large' type={'password'} placeholder="Confirm password" />
+            <Input size='large' type={'password'} placeholder="Confirm password*" />
           </div>
           <div className={classes.btn_block}>
             <Button type="primary">Save</Button>

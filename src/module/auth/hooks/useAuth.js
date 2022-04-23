@@ -9,7 +9,7 @@ const useAuth = () => {
   const isFetched = useSelector((state) => state.auth.isFetched);
   const token = useSelector((state) => state.auth.token);
   const profile = useSelector((state) => state.auth.profile);
-
+  
   const logout = () => {
     dispatch(Actions.Logout.request());
   };

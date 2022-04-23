@@ -1,5 +1,6 @@
 import classes from './Accsess.module.scss'
 import { Table, Tag, Space } from 'antd';
+import { useSelector } from 'react-redux';
 const Accsess = () => {
   const data = [
     {
@@ -72,6 +73,7 @@ const Accsess = () => {
       ),
     },
   ];
+
   return (
     <div className={classes.wrapper}>
       <h2>Accsess</h2>
