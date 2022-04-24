@@ -3,42 +3,29 @@ import React, { useState } from "react";
 import classes from "./RightBar.module.scss";
 import { CreateForm, CardNote } from "./components";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { v4 as uuid } from "uuid";
-
-const columnsBackend = {
-  [uuid()]: {
-    items: [
-      {
-        id: uuid(),
-        content: "FirstTask",
-      },
-      {
-        id: uuid(),
-        content: "SecondTask",
-      },
-    ],
-  },
-};
+import useList from "../../module/note/hooks/useList";
+import { useEffect } from "react";
 
 const RightBar = () => {
+  const { items, isFetched } = useList()
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [columns, setColumns] = useState(columnsBackend);
+  const [columns, setColumns] = useState(items);
 
-  const onDropEnd = (result, columns, setColumns) => {
+  useEffect(() => {
+    setColumns(items)
+  }, [items, isFetched])
+
+  console.log(columns)
+  const onDropEnd = (result) => {
     if (!result.destination) return;
     const { source, destination } = result;
-
-    const column = columns[source.droppableId];
-    const copiedItems = [...column?.items];
-    const [removed] = copiedItems.splice(source.index, 1);
-    copiedItems.splice(destination.index, 0, removed);
-    setColumns({
-      ...columns,
-      [source.droppableId]: {
-        ...column,
-        items: copiedItems,
-      },
-    });
+    if (destination.index === source.index) {
+      return;
+    }
+    const data = Array.from(columns);
+    const [reorderedItem] = data.splice(source.index, 1);
+    data.splice(destination.index, 0, reorderedItem);
+    setColumns(data);
   };
 
   return (
@@ -49,57 +36,53 @@ const RightBar = () => {
         </Button>
         <Modal
           centered
-          title="NotePad"
+          title="Note"
           visible={isModalVisible}
-          onOk={() => setIsModalVisible(true)}
-          onCancel={() => setIsModalVisible(false)}
+          footer={false}
         >
-          <CreateForm />
+          <CreateForm onClose={() => setIsModalVisible(false)} />
         </Modal>
       </div>
       <div className={classes.viewer}>
         <DragDropContext
-          onDragEnd={(result) => onDropEnd(result, columns, setColumns)}
+          onDragEnd={(result) => onDropEnd(result)}
         >
-          {Object.entries(columns).map(([id, column]) => {
-            return (
-              <Droppable droppableId={id} key={id}>
-                {(provided) => {
-                  return (
-                    <div
-                      {...provided.droppableProps}
-                      ref={provided.innerRef}
-                      className={classes.drag}
-                    >
-                      {column?.items?.map((item, index) => {
-                        return (
-                          <Draggable
-                            key={item.id}
-                            draggableId={item.id}
-                            index={index}
-                          >
-                            {(provided) => {
-                              return (
-                                <div
-                                  className={classes.dragger}
-                                  ref={provided.innerRef}
-                                  {...provided.dragHandleProps}
-                                  {...provided.draggableProps}
-                                >
-                                  <CardNote />
-                                </div>
-                              );
-                            }}
-                          </Draggable>
-                        );
-                      })}
-                      {provided.placeholder}
-                    </div>
-                  );
-                }}
-              </Droppable>
-            );
-          })}
+          <Droppable droppableId="droppable">
+            {(provided) => {
+              return (
+                <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  className={classes.drag}
+                >
+                  {columns?.map((item, index) => {
+                    return (
+                      <Draggable
+                        key={item.id}
+                        draggableId={item?.id?.toString()}
+                        index={index}
+                      >
+                        {(provided) => {
+                          return (
+                            <div
+                              className={classes.dragger}
+                              ref={provided.innerRef}
+                              {...provided.dragHandleProps}
+                              {...provided.draggableProps}
+                            >
+                              <CardNote item={item} />
+                            </div>
+                          );
+                        }}
+                      </Draggable>
+                    )
+                  })}
+                  {provided.placeholder}
+                </div>
+              )
+            }}
+          </Droppable>
+
         </DragDropContext>
       </div>
     </div>
