@@ -26,7 +26,7 @@ const Darshboard = () => {
           </Button>,
         ]}
       >
-        <Modal visible={!!query.task} onCancel={() => pushQuery('')}>
+        <Modal centered visible={!!query.task} onCancel={() => pushQuery('')}>
           <View />
         </Modal>
       </PageHeader>

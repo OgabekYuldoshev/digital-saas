@@ -6,20 +6,24 @@ import Logo from "../../../assets/images/logo.png";
 import Box from "../../../components/Box";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
   const { t } = useTranslation();
   const history = useHistory();
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className={classes.wrapper}>
       <Box>
         <RegisterForm
           onSuccess={() => {
+            setLoading(false)
             message.success(t("register_success"));
             history.push("/login");
           }}
           onError={() => {
+            setLoading(false)
             message.error(t("register_error"));
           }}
         >
@@ -89,6 +93,8 @@ const SignUp = () => {
                     disabled={!(isValid && dirty)}
                     type="primary"
                     htmlType="submit"
+                    loading={loading}
+                    onClick={() => setLoading(true)}
                     block
                   >
                     {t("field_button_register")}

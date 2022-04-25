@@ -16,18 +16,22 @@ import Logo from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import Box from "../../../components/Box";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const SignIn = () => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className={classes.wrapper}>
       <Box>
         <LoginForm
           onSuccess={() => {
+            setLoading(false)
             message.success(t("login_success"));
           }}
           onError={() => {
+            setLoading(false)
             message.error(t("login_error"));
           }}
         >
@@ -73,6 +77,8 @@ const SignIn = () => {
                     disabled={!(isValid && dirty)}
                     type="primary"
                     htmlType="submit"
+                    loading={loading}
+                    onClick={() => setLoading(true)}
                     block
                   >
                     {t("field_button_login")}

@@ -10,6 +10,7 @@ import AdsPage from "./pages/Ads";
 import AdsDataPage from "./pages/AdsData";
 import SEOPage from "./pages/SEO";
 import SEMPage from "./pages/SEM";
+import ChatPage from "./pages/Chat";
 import ProfilePage from "./pages/Settings/Profile";
 import AccsessPage from "./pages/Settings/Accsess";
 import SocialNetworkPage from "./pages/Settings/Social-network";
@@ -86,7 +87,6 @@ export const privateRoutes = [
     path: "/seo",
     component: SEOPage,
   },
-
   {
     name: "SEM",
     path: "/sem",
@@ -107,5 +107,11 @@ export const privateRoutes = [
     name: "Social-network",
     path: "/settings/networks",
     component: SocialNetworkPage,
+  },
+
+  {
+    name: "chat",
+    path: "/command/chat",
+    component: ChatPage,
   },
 ];

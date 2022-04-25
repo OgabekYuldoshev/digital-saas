@@ -1,1 +1,1 @@
-export {default} from "./InProgress"
+export { default } from "./InProgress";

@@ -87,27 +87,34 @@ const SideBar = () => {
           ADS Data
         </Link>
       </Menu.Item>
-      <Menu.Item key="/command">
-        <Link to="/command">
-          Команда
-        </Link>
-      </Menu.Item>
+      <Menu.SubMenu title="Команда" key="/command">
+        <Menu.Item key="/command/chat">
+          <Link to="/command/chat">
+            Chat
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="/command/list">
+          <Link to="/command/list">
+            Users
+          </Link>
+        </Menu.Item>
+      </Menu.SubMenu>
       <Menu.SubMenu title="Settings" key="/settings">
-      <Menu.Item key="/settings/profile">
-        <Link to="/settings/profile">
-          Profile
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="/settings/networks">
-        <Link to="/settings/networks">
-          Social networks
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="/settings/accsess">
-        <Link to="/settings/accsess">
-          Accsess
-        </Link>
-      </Menu.Item>
+        <Menu.Item key="/settings/profile">
+          <Link to="/settings/profile">
+            Profile
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="/settings/networks">
+          <Link to="/settings/networks">
+            Social networks
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="/settings/accsess">
+          <Link to="/settings/accsess">
+            Accsess
+          </Link>
+        </Menu.Item>
       </Menu.SubMenu>
     </Menu>
   );
