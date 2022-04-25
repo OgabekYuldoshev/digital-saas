@@ -1,6 +1,8 @@
 .wrapper {
     display: block;
     margin: auto;
+    // height: 100vh;
+    min-height: 100vh;
 
     .header {
         background: white;
@@ -9,19 +11,16 @@
 
     .sidebarRight {
         background: white;
-        min-height: 50vh;
         border-right: 1px solid lightgray;
     }
 
     .sidebarLeft {
         background: white;
         padding: 10px;
-        min-height: 50vh;
         border-left: 1px solid lightgray;
     }
 
     .content {
         padding: 10px;
-        min-height: 91vh;
     }
 }

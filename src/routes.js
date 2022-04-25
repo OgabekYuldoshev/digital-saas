@@ -7,12 +7,13 @@ import PlansPage from "./pages/Plans";
 import CreatePlansPage from "./pages/Plans/containers/Create";
 import UpdatePlansPage from "./pages/Plans/containers/Update";
 import AdsPage from "./pages/Ads";
-import AdsDataPage from "./pages/AdsData";
+import { AdsCalculate, AdsList } from "./pages/AdsData";
 import SEOPage from "./pages/SEO";
 import SEMPage from "./pages/SEM";
 import ChatPage from "./pages/Chat";
+import CommandsPage from "./pages/CommandList";
 import ProfilePage from "./pages/Settings/Profile";
-import AccsessPage from "./pages/Settings/Accsess";
+// import AccsessPage from "./pages/Settings/Accsess";
 import SocialNetworkPage from "./pages/Settings/Social-network";
 
 export const publicRoutes = [
@@ -77,11 +78,15 @@ export const privateRoutes = [
     component: AdsPage,
   },
   {
-    name: "Ads Data",
-    path: "/ads-data",
-    component: AdsDataPage,
+    name: "Ads Calculate",
+    path: "/ads/calculate",
+    component: AdsCalculate,
   },
-
+  {
+    name: "Ads List",
+    path: "/ads/list",
+    component: AdsList,
+  },
   {
     name: "SEO",
     path: "/seo",
@@ -98,11 +103,11 @@ export const privateRoutes = [
     path: "/settings/profile",
     component: ProfilePage,
   },
-  {
-    name: "Access",
-    path: "/settings/accsess",
-    component: AccsessPage,
-  },
+  // {
+  //   name: "Access",
+  //   path: "/settings/accsess",
+  //   component: AccsessPage,
+  // },
   {
     name: "Social-network",
     path: "/settings/networks",
@@ -110,8 +115,13 @@ export const privateRoutes = [
   },
 
   {
-    name: "chat",
+    name: "Chat",
     path: "/command/chat",
     component: ChatPage,
+  },
+  {
+    name: "Commands",
+    path: "/command/list",
+    component: CommandsPage,
   },
 ];

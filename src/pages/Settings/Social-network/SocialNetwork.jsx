@@ -21,11 +21,13 @@ const SocialNetwork = () => {
         className="site-page-header"
         onBack={() => window.history.back()}
         title="Social Networks"
+        extra={[
+          <Button type="primary" >Submit</Button>
+        ]}
       />
-      <Box>
-        <h2 style={{ textAlign: 'center' }}>Social Networks</h2>
-        <Row gutter={[16, 16]}>
-          <Col span={12} offset={6}>
+      <Row gutter={[16, 16]}>
+        <Col span={16}>
+          <Box>
             <Select defaultValue="Facebook" style={{ width: '100%' }} onChange={handleChange}>
               <Option value="facebook">Facebook</Option>
               <Option value="instagram">Instagram</Option>
@@ -34,24 +36,24 @@ const SocialNetwork = () => {
               <Option value="odnoklassniki">Odnoklassniki</Option>
               <Option value="telegram">Telegram</Option>
             </Select>
-          </Col>
-          {
-            social ? <>
-              <Col span={12} offset={6}>
+          </Box>
+        </Col>
+        <Col span={8}>
+          <Box>
+            <Row gutter={[16, 16]}>
+              <Col span={24}>
                 <Input placeholder="Username, phone or email" />
               </Col>
-              <Col span={12} offset={6}>
+              <Col span={24}>
                 <Input placeholder="Password" />
               </Col>
-            </> : <Col span={12} offset={6}>
-              <Input placeholder="Telegram Link" />
-            </Col>
-          }
-          <Col span={12} offset={15}>
-            <Button type="primary" >Submit</Button>
-          </Col>
-        </Row>
-      </Box>
+              <Col span={24}>
+                <Input placeholder="Telegram Link" />
+              </Col>
+            </Row>
+          </Box>
+        </Col>
+      </Row>
     </div>
   )
 }
