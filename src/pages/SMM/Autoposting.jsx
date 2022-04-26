@@ -6,17 +6,24 @@ import add from '../../assets/images/add.svg';
 import CardList from './CardList';
 import Inprogress from '../../components/Inprogress';
 import { Link } from 'react-router-dom';
+import AddPage from './AddPage';
 
 const { Option } = Select;
 
 function Autoposting() {
 
     const [social, setSocial] = useState(true)
+    const [state, setState] = useState()
 
     function handleChange(value){
-        if(value == "Youtube" || value == "Tik-Tok" || value == "VK" || value == "Twitter") setSocial(false)
-        else setSocial(true)
+      setState(value)
+      if(value == "Youtube" || value == "Tik-Tok" || value == "VK" || value == "Twitter") setSocial(false)
+      else setSocial(true)
     }
+    console.log(state);
+
+
+
 
   return (
     <div className='site-card-wrapper'>
@@ -25,7 +32,7 @@ function Autoposting() {
                 <Option value="Календарь">Календарь</Option>
             </Select>
 
-            <Select defaultValue="Instagram" onChange={handleChange}>
+            <Select defaultValue="Instagram" onChange={handleChange} >
                 <Option value="Instagram">Instagram</Option>
                 <Option value="Facebook">Facebook</Option>
                 <Option value="Telegram">Telegram</Option>
@@ -40,9 +47,9 @@ function Autoposting() {
         {
             social ?
         <Row className={classes.card__row} gutter={24}>
-      <Col className={classes.card__col} span={11}>
-        <Link to={"/smm/addpage"}>
-        <Card className={classes.card__card}>
+      <Col className={classes.card__col}  span={11}>
+        <Link to={"/smm/addpage"}  >
+        <Card className={classes.card__card} state={state} >
         <nav className={classes.card__nav}>
           <img src={add} alt="add" />
           <p className={classes.card__subdesc}>Добавить</p>
