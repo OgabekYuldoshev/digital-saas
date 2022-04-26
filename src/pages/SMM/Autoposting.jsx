@@ -43,12 +43,11 @@ function Autoposting() {
             </Select>
         </div>
 
-
         {
             social ?
         <Row className={classes.card__row} gutter={24}>
       <Col className={classes.card__col}  span={11}>
-        <Link to={"/smm/addpage"}  >
+        <Link to={"/smm/addpage"}>
         <Card className={classes.card__card} state={state} >
         <nav className={classes.card__nav}>
           <img src={add} alt="add" />

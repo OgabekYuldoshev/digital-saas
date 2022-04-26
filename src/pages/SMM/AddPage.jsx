@@ -3,21 +3,14 @@ import classes from './SMM.module.scss';
 import {
     Form,
     Input,
-    Button,
-    Radio,
-    Select,
     Cascader,
-    DatePicker,
-    InputNumber,
-    TreeSelect,
-    Switch,
     PageHeader,
     TimePicker
   } from 'antd';
 import Silka from '../../assets/images/silka.svg';
 
   
-function AddPage(props) {
+function AddPage() {
   return (
     <div>
         <PageHeader
@@ -25,12 +18,10 @@ function AddPage(props) {
         onBack={() => window.history.back()}
         title="Go Back"
       />
-      <h1>Social {props.state}</h1>
       <Form
       labelCol={{ span: 12}}
       wrapperCol={{ span: 24 }}
       layout="vertical"
-    //   className={classes.card__form}
       >
       <div className={classes.card__form}>
       <Form.Item label="Время:">

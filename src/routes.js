@@ -7,7 +7,8 @@ import PlansPage from "./pages/Plans";
 import CreatePlansPage from "./pages/Plans/containers/Create";
 import UpdatePlansPage from "./pages/Plans/containers/Update";
 import AdsPage from "./pages/Ads";
-import AdsDataPage from "./pages/AdsData";
+// import AdsDataPage from "./pages/AdsData";
+import AdsData from "./pages/AdsData";
 import SEOPage from "./pages/SEO";
 import SEMPage from "./pages/SEM";
 import ProfilePage from "./pages/Settings/Profile";
@@ -81,7 +82,7 @@ export const privateRoutes = [
   {
     name: "Ads Data",
     path: "/ads-data",
-    component: AdsDataPage,
+    component: AdsData,
   },
 
   {

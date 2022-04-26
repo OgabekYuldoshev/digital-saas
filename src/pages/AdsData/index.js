@@ -1,1 +1,1 @@
-export {default} from "./AdsData"
+export {default} from "./AdsData.jsx"

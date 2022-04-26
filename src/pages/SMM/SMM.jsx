@@ -15,12 +15,12 @@ function SMM() {
             >
             <h1 className={classes.smm__title}>Статистика</h1>
             <Tabs defaultActiveKey='1' centered>
-                <TabPane className={classes.smm__tabpane} tab="Account" key="1">
+                <TabPane className={classes.smm__tabpane} tab="Аккаунт" key="1">
                 </TabPane>
-                <TabPane className={classes.smm__tabpane} tab="Publication" key="2">
+                <TabPane className={classes.smm__tabpane} tab="Публикация" key="2">
                     <Publication/>
                 </TabPane>
-                <TabPane className={classes.smm__tabpane} tab="Autoposting" key="3">
+                <TabPane className={classes.smm__tabpane} tab="Автопостинг" key="3">
                     <Autoposting/>
                 </TabPane>
             </Tabs>
