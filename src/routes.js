@@ -13,6 +13,9 @@ import SEMPage from "./pages/SEM";
 import ProfilePage from "./pages/Settings/Profile";
 import AccsessPage from "./pages/Settings/Accsess";
 import SocialNetworkPage from "./pages/Settings/Social-network";
+import SMMPage from "./pages/SMM";
+import CardPage from "./pages/SMM/CardPage";
+import AddPage from "./pages/SMM/AddPage";
 
 export const publicRoutes = [
   {
@@ -91,6 +94,24 @@ export const privateRoutes = [
     name: "SEM",
     path: "/sem",
     component: SEMPage,
+  },
+
+  {
+    name: "SMM",
+    path: "/smm",
+    component: SMMPage,
+  },
+
+  {
+    name: "CardPage",
+    path: "/smm/cardpage",
+    component: CardPage,
+  },
+
+  {
+    name: "AddPage",
+    path: "/smm/addpage",
+    component: AddPage,
   },
 
   {
