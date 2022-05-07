@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import { PageHeader, Row, Col, DatePicker, Select, Modal, Button } from "antd";
+import React from "react";
+import { Row, Col, DatePicker, Select, Input } from "antd";
 import DonuteChart from "../../../components/DonuteChart";
 import Box from "../../../components/Box";
-import View from "./View";
 import classes from "./Account.module.scss";
 
 const { RangePicker } = DatePicker;
-
-const Account = () => {
-  const [modal, setModal] = useState(false);
+const { Search } = Input;
+const View = () => {
   return (
     <>
-      <PageHeader
-        className="site-page-header"
-        onBack={() => window.history.back()}
-        title="Accounting"
-        extra={[
-          <Button onClick={() => setModal(true)} type="primary">
-            Compare
-          </Button>,
-        ]}
-      />
+      <Search style={{ margin: "20px 0" }} placeholder="Link" enterButton />
       <Row className={classes.filter} gutter={[16, 16]}>
         <Col span={6}>
           <RangePicker />
@@ -61,17 +50,8 @@ const Account = () => {
           <DonuteChart title="Ogebek" />
         </Col>
       </Row>
-
-      <Modal
-        visible={modal}
-        onCancel={() => setModal(false)}
-        width={1000}
-        footer={null}
-      >
-        <View />
-      </Modal>
     </>
   );
 };
 
-export default Account;
+export default View;

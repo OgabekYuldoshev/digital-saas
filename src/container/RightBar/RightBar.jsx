@@ -1,4 +1,4 @@
-import { Button, Modal } from "antd";
+import { Button, Modal, Empty } from "antd";
 import React, { useState } from "react";
 import classes from "./RightBar.module.scss";
 import { CreateForm, CardNote } from "./components";
@@ -7,15 +7,15 @@ import useList from "../../module/note/hooks/useList";
 import { useEffect } from "react";
 
 const RightBar = () => {
-  const { items, isFetched } = useList()
+  const { items, isFetched } = useList();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [columns, setColumns] = useState(items);
 
   useEffect(() => {
-    setColumns(items)
-  }, [items, isFetched])
+    setColumns(items);
+  }, [items, isFetched]);
 
-  console.log(columns)
+  console.log(columns);
   const onDropEnd = (result) => {
     if (!result.destination) return;
     const { source, destination } = result;
@@ -34,56 +34,54 @@ const RightBar = () => {
         <Button type="primary" block onClick={() => setIsModalVisible(true)}>
           Create Note
         </Button>
-        <Modal
-          centered
-          title="Note"
-          visible={isModalVisible}
-          footer={false}
-        >
+        <Modal centered title="Note" visible={isModalVisible} footer={false}>
           <CreateForm onClose={() => setIsModalVisible(false)} />
         </Modal>
       </div>
       <div className={classes.viewer}>
-        <DragDropContext
-          onDragEnd={(result) => onDropEnd(result)}
-        >
-          <Droppable droppableId="droppable">
-            {(provided) => {
-              return (
-                <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className={classes.drag}
-                >
-                  {columns?.map((item, index) => {
-                    return (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item?.id?.toString()}
-                        index={index}
-                      >
-                        {(provided) => {
-                          return (
-                            <div
-                              className={classes.dragger}
-                              ref={provided.innerRef}
-                              {...provided.dragHandleProps}
-                              {...provided.draggableProps}
-                            >
-                              <CardNote item={item} />
-                            </div>
-                          );
-                        }}
-                      </Draggable>
-                    )
-                  })}
-                  {provided.placeholder}
-                </div>
-              )
-            }}
-          </Droppable>
-
-        </DragDropContext>
+        {columns?.length ? (
+          <DragDropContext onDragEnd={(result) => onDropEnd(result)}>
+            <Droppable droppableId="droppable">
+              {(provided) => {
+                return (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className={classes.drag}
+                  >
+                    {columns?.map((item, index) => {
+                      return (
+                        <Draggable
+                          key={item.id}
+                          draggableId={item?.id?.toString()}
+                          index={index}
+                        >
+                          {(provided) => {
+                            return (
+                              <div
+                                className={classes.dragger}
+                                ref={provided.innerRef}
+                                {...provided.dragHandleProps}
+                                {...provided.draggableProps}
+                              >
+                                <CardNote item={item} />
+                              </div>
+                            );
+                          }}
+                        </Draggable>
+                      );
+                    })}
+                    {provided.placeholder}
+                  </div>
+                );
+              }}
+            </Droppable>
+          </DragDropContext>
+        ) : (
+          <div className={classes.empty}>
+            <Empty />
+          </div>
+        )}
       </div>
     </div>
   );

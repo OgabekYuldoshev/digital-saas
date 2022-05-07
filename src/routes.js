@@ -10,7 +10,7 @@ import AdsPage from "./pages/Ads";
 import { AdsCalculate, AdsList } from "./pages/AdsData";
 import SEOPage from "./pages/SEO";
 import SEMPage from "./pages/SEM";
-import ChatPage from "./pages/Chat";
+import { Account, AutoPosting, Public } from "./pages/SMM";
 import CommandsPage from "./pages/CommandList";
 import ProfilePage from "./pages/Settings/Profile";
 // import AccsessPage from "./pages/Settings/Accsess";
@@ -55,7 +55,21 @@ export const privateRoutes = [
     path: "/tasks/update/:id",
     component: UpdateTasksPage,
   },
-
+  {
+    name: "SMM account",
+    path: "/smm/account",
+    component: Account,
+  },
+  {
+    name: "SMM posting",
+    path: "/smm/posting",
+    component: AutoPosting,
+  },
+  {
+    name: "SMM puiblic",
+    path: "/smm/public",
+    component: Public,
+  },
   {
     name: "Plans",
     path: "/plans",
@@ -112,12 +126,6 @@ export const privateRoutes = [
     name: "Social-network",
     path: "/settings/networks",
     component: SocialNetworkPage,
-  },
-
-  {
-    name: "Chat",
-    path: "/command/chat",
-    component: ChatPage,
   },
   {
     name: "Commands",

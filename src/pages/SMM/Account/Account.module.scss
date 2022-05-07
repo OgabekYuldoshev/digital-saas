@@ -1,0 +1,20 @@
+.statistics {
+    margin: 20px 0;
+
+    .statistic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid lightgray;
+
+        span {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        &:nth-last-child(1) {
+            border: none;
+        }
+    }
+}
