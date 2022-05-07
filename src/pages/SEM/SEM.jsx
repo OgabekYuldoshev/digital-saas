@@ -1,11 +1,11 @@
 import React from 'react'
-import Inprogress from '../../components/InProgress/InProgress'
+import Progress from '../../components/Progress'
 import classes from './SEM.module.scss';
 
 const SEM = () => {
   return (
     <div className={classes.wrapper}>
-        <Inprogress/>
+        <Progress/>
     </div>
   )
 }

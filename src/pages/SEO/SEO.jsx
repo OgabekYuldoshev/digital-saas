@@ -1,13 +1,13 @@
-import React from 'react'
-import Inprogress from '../../components/InProgress/InProgress'
-import classes from './SEO.module.scss';
+import React from "react";
+import Progress from "../../components/Progress";
+import classes from "./SEO.module.scss";
 
 const SEO = () => {
   return (
     <div className={classes.wrapper}>
-        <Inprogress/>
+      <Progress />
     </div>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;
