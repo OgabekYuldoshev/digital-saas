@@ -1,9 +1,49 @@
-import React from 'react'
+import React, { useState } from "react";
+import { PageHeader, Row, Col, Modal, Button } from "antd";
+import LineChart from "../../../components/LineChart";
+// import Box from "../../../components/Box";
+import View from "./View";
+// import classes from "./Public.module.scss";
 
 const Public = () => {
-    return (
-        <div>Public</div>
-    )
-}
+  const [modal, setModal] = useState(false);
+  return (
+    <>
+      <PageHeader
+        className="site-page-header"
+        onBack={() => window.history.back()}
+        title="Publicatsiya"
+        extra={[
+          <Button onClick={() => setModal(true)} type="primary">
+            My Account
+          </Button>,
+        ]}
+      />
+      <Row gutter={[24, 24]}>
+        <Col span={12}>
+          <LineChart title="Ogebek" />
+        </Col>
+        <Col span={12}>
+          <LineChart title="Ogebek" />
+        </Col>
+        <Col span={12}>
+          <LineChart title="Ogebek" />
+        </Col>
+        <Col span={12}>
+          <LineChart title="Ogebek" />
+        </Col>
+      </Row>
 
-export default Public
+      <Modal
+        visible={modal}
+        onCancel={() => setModal(false)}
+        width={800}
+        footer={null}
+      >
+        <View />
+      </Modal>
+    </>
+  );
+};
+
+export default Public;

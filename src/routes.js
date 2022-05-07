@@ -11,6 +11,8 @@ import { AdsCalculate, AdsList } from "./pages/AdsData";
 import SEOPage from "./pages/SEO";
 import SEMPage from "./pages/SEM";
 import { Account, AutoPosting, Public } from "./pages/SMM";
+import { Create, Update, View } from "./pages/SMM/AutoPosting/containers";
+
 import CommandsPage from "./pages/CommandList";
 import ProfilePage from "./pages/Settings/Profile";
 // import AccsessPage from "./pages/Settings/Accsess";
@@ -64,6 +66,21 @@ export const privateRoutes = [
     name: "SMM posting",
     path: "/smm/posting",
     component: AutoPosting,
+  },
+  {
+    name: "SMM posting create",
+    path: "/smm/posting/create",
+    component: Create,
+  },
+  {
+    name: "SMM posting update",
+    path: "/smm/posting/update/:id",
+    component: Update,
+  },
+  {
+    name: "SMM posting veiw",
+    path: "/smm/posting/view/:id",
+    component: View,
   },
   {
     name: "SMM puiblic",
