@@ -10,7 +10,9 @@ const config = {
     list: ["uz", "oz", "ru", "en"],
   },
   api: {
-    baseUrl: "http://dsaas.uz",
+    baseUrl: "https://dsaas.uz",
+    // baseUrl: "https://5747-84-54-120-98.eu.ngrok.io",
+
   },
   sentry: {
     dsn: process.env.REACT_APP_SENTRY_DSN,

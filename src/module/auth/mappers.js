@@ -14,6 +14,6 @@ export const Profile = (item) => {
 };
 
 export const Tokens = (item) => ({
-  accessToken: get(item, "access_token") || "",
-  refreshToken: get(item, "refresh_token") || "",
+  accessToken: get(item, "access") || "",
+  refreshToken: get(item, "refresh") || "",
 });

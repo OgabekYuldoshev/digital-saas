@@ -8,19 +8,13 @@ import * as Api from "../api";
 import { useMutation } from "react-query";
 import { useDispatch } from "react-redux";
 
-
-const Login = ({
-  onSuccess,
-  onError,
-  onSettled,
-  children,
-}) => {
+const Login = ({ onSuccess, onError, onSettled, children }) => {
   const dispatch = useDispatch();
 
   const mutation = useMutation(
     async (values) => {
       const { data } = await Api.Login({ values });
-      return  Mappers.Tokens(data);
+      return Mappers.Tokens(data?.token);
     },
     {
       onSuccess,
@@ -29,15 +23,12 @@ const Login = ({
     }
   );
 
-  const handleSubmit = (
-    values,
-    { isSubmitting, setSubmitting }
-  ) => {
+  const handleSubmit = (values, { isSubmitting, setSubmitting }) => {
     if (!isSubmitting) {
       setSubmitting(true);
       mutation.mutate(values, {
         onError: () => setSubmitting(false),
-        onSuccess: (tokens)=>dispatch(Actions.Login.request({tokens}))
+        onSuccess: (tokens) => dispatch(Actions.Login.request({ tokens })),
       });
     }
   };
@@ -55,7 +46,8 @@ const Login = ({
         password: "",
       }}
       enableReinitialize
-      {...{ validationSchema }}>
+      {...{ validationSchema }}
+    >
       {(props) => <Form>{children(props)}</Form>}
     </Formik>
   );
