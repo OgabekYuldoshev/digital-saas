@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png';
-import classes from './Loading.module.scss';
+import classes from './Main.module.scss';
 import ReactLoading from 'react-loading';
 
 const Loading = () => {
