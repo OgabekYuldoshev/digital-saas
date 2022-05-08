@@ -7,7 +7,7 @@ import classes from "./SideBar.module.scss";
 const SideBar = () => {
   const { pathname } = useLocation();
   return (
-    <Affix offsetTop={0}>
+    <Affix offsetTop={60}>
       <Menu
         className={classes.wrapper}
         mode="inline"

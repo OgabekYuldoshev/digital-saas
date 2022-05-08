@@ -7,20 +7,26 @@
     .header {
         background: white;
         border-bottom: 1px solid lightgray;
+        position: fixed;
+        z-index: 99;
+        width: 100%;
     }
 
     .sidebarRight {
         background: white;
+        margin-top: 60px;
         border-right: 1px solid lightgray;
     }
 
     .sidebarLeft {
         background: white;
+        margin-top: 60px;
         padding: 10px;
         border-left: 1px solid lightgray;
     }
 
     .content {
+        margin-top: 50px;
         padding: 10px;
     }
 }

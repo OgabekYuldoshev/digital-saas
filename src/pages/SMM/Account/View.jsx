@@ -38,16 +38,29 @@ const View = () => {
       </div>
       <Row gutter={[24, 24]}>
         <Col span={12}>
-          <DonuteChart title="Ogebek" />
+          <Box>
+            <DonuteChart title="Ogebek" />
+          </Box>
         </Col>
         <Col span={12}>
-          <DonuteChart title="Ogebek" />
+          <Box>
+            <DonuteChart title="Ogebek" />
+          </Box>
         </Col>
         <Col span={12}>
-          <DonuteChart title="Ogebek" />
+          <Box>
+            <DonuteChart title="Ogebek" />
+          </Box>
         </Col>
         <Col span={12}>
-          <DonuteChart title="Ogebek" />
+          <Box>
+            <DonuteChart title="Ogebek" />
+          </Box>
+        </Col>
+        <Col span={12}>
+          <Box>
+            <DonuteChart title="Ogebek" />
+          </Box>
         </Col>
       </Row>
     </>
