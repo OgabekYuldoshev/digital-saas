@@ -1,20 +1,14 @@
 import React from "react";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
-
-import * as Mappers from "../mappers";
-import * as Actions from "../actions";
 import * as Api from "../api";
 import { useMutation } from "react-query";
-import { useDispatch } from "react-redux";
 
-const Login = ({ onSuccess, onError, onSettled, children }) => {
-  const dispatch = useDispatch();
-
+const Create = ({ onSuccess, onError, onSettled, children }) => {
   const mutation = useMutation(
     async (values) => {
-      const { data } = await Api.Login({ values });
-      return Mappers.Tokens(data && data);
+      const { data } = await Api.Create({ values });
+      return data;
     },
     {
       onSuccess,
@@ -24,28 +18,31 @@ const Login = ({ onSuccess, onError, onSettled, children }) => {
   );
 
   const handleSubmit = (values, { isSubmitting, setSubmitting }) => {
+    console.log(values);
     if (!isSubmitting) {
       setSubmitting(true);
       mutation.mutate(values, {
         onError: () => setSubmitting(false),
-        onSuccess: (tokens) => dispatch(Actions.Login.request({ tokens })),
       });
     }
   };
 
   const validationSchema = yup.object().shape({
-    email: yup.string().required(),
-    password: yup.string().min(6).required(),
+    description: yup.string().required(),
+    deadline: yup.string().required(),
+    status: yup.string().required(),
+    pinned_to: yup.string().required(),
   });
 
   return (
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
-        email: "",
-        password: "",
+        description: "",
+        deadline: "",
+        status: "TO_DO",
+        pinned_to: "",
       }}
-      enableReinitialize
       {...{ validationSchema }}
     >
       {(props) => <Form>{children(props)}</Form>}
@@ -53,4 +50,4 @@ const Login = ({ onSuccess, onError, onSettled, children }) => {
   );
 };
 
-export default Login;
+export default Create;

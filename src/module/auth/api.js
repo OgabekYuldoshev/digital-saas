@@ -16,7 +16,7 @@ export const Register = ({ values }) =>
     conformationPassword: values.conformationPassword,
   });
 
-export const Profile = () => http.request.get(`/api/user/auth/get-user/`);
+export const Profile = () => http.request.get(`/api/user/auth/user/`);
 
 export const Reset = ({ values }) =>
   http.request.post(`/api/user/auth/password/reset/`, {
