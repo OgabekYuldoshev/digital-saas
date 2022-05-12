@@ -1,69 +1,13 @@
 import classes from "./Draggable.module.scss";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { v4 as uuid } from "uuid";
+import useUpdate from "../../../../module/task/hooks/useUpdate";
 import { useEffect, useState } from "react";
 
 import TaskCard from "../TaskCard";
 
-const columnsBackend = {
-  [uuid()]: {
-    name: "To Do",
-    items: [
-      {
-        id: uuid(),
-        content: "FirstTask",
-      },
-      {
-        id: uuid(),
-        content: "SecondTask",
-      },
-    ],
-  },
-  [uuid()]: {
-    name: "Progress",
-    items: [
-      {
-        id: uuid(),
-        content: "Ogabek",
-      },
-      {
-        id: uuid(),
-        content: "Test",
-      },
-    ],
-  },
-  [uuid()]: {
-    name: "Waiting",
-    items: [
-      {
-        id: uuid(),
-        content: "FirstTask",
-      },
-      {
-        id: uuid(),
-        content: "SecondTask",
-      },
-    ],
-  },
-  [uuid()]: {
-    name: "Done",
-    items: [
-      {
-        id: uuid(),
-        content: "Ogabek",
-      },
-      {
-        id: uuid(),
-        content: "Test",
-      },
-    ],
-  },
-};
-
 const Darshboard = ({ items }) => {
   const [columns, setColumns] = useState(items || []);
-
-  console.log(columns);
+  const { mutation } = useUpdate();
 
   useEffect(() => {
     setColumns(items);
@@ -72,6 +16,10 @@ const Darshboard = ({ items }) => {
   const onDropEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
+    mutation.mutate({
+      id: result.draggableId,
+      status: destination.droppableId,
+    });
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId];
       const destColumn = columns[destination.droppableId];
@@ -121,7 +69,6 @@ const Darshboard = ({ items }) => {
                 >
                   <h4>{column.name}</h4>
                   {column?.items?.map((item, index) => {
-                    console.log(item);
                     return (
                       <Draggable
                         key={String(item.id)}

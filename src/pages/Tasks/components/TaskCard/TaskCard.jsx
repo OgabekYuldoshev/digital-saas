@@ -6,8 +6,6 @@ import classes from "./TaskCard.module.scss";
 
 const TaskCard = ({ task }) => {
   const [_, { pushQuery }] = useQueryParams();
-  console.log(task);
-
   return (
     <Card
       className={classes.wrapper}

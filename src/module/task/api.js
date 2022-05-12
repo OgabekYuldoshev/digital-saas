@@ -16,6 +16,11 @@ export const Update = ({ values, id }) =>
     pinned_to: values.pinned_to
   });
 
+export const ChangeStatus = ({ status, id }) =>
+  http.request.put(`/task/task/status/${id}`, {
+    status,
+  });
+
 export const List = () => http.request.get("/task/task/");
 
 export const Delete = ({ id }) => http.request.delete(`/task/task/${id}/`);
