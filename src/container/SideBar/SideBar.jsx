@@ -33,7 +33,7 @@ const SideBar = () => {
             <Link to="/smm/posting">Auto Posting</Link>
           </Menu.Item>
         </Menu.SubMenu>
-        <Menu.Item key="/ads">
+        <Menu.Item key="/adsm">
           <Link to="/ads">ADS</Link>
         </Menu.Item>
         <Menu.Item key="/sem">

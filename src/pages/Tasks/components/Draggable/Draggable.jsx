@@ -1,7 +1,7 @@
 import classes from "./Draggable.module.scss";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import TaskCard from "../TaskCard";
 
@@ -60,8 +60,14 @@ const columnsBackend = {
   },
 };
 
-const Darshboard = () => {
-  const [columns, setColumns] = useState(columnsBackend);
+const Darshboard = ({ items }) => {
+  const [columns, setColumns] = useState(items || []);
+
+  console.log(columns);
+
+  useEffect(() => {
+    setColumns(items);
+  }, [items]);
 
   const onDropEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -115,10 +121,11 @@ const Darshboard = () => {
                 >
                   <h4>{column.name}</h4>
                   {column?.items?.map((item, index) => {
+                    console.log(item);
                     return (
                       <Draggable
-                        key={item.id}
-                        draggableId={item.id}
+                        key={String(item.id)}
+                        draggableId={String(item.id)}
                         index={index}
                       >
                         {(provided) => {

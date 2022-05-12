@@ -2,19 +2,16 @@
 import { useQuery } from "react-query";
 import * as Api from "../api";
 import * as Constants from "../constants";
-// import * as Mappers from "../mapper";
+import * as Mappers from "../mapper";
 
 const useList = () => {
   const { data, ...args } = useQuery(
     [Constants.ENTITY, "list"],
     async () => {
       const { data } = await Api.List();
-      console.log(data)
-      // const items = data?.map((item) => Mappers.Note(item));
-
-      // return { items };
+      return { items: Mappers.Tasks(data) };
     },
-    { keepPreviousData: true }
+    { keepPreviousData: true, retry: false }
   );
 
   return { ...data, ...args };

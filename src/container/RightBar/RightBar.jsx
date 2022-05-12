@@ -15,7 +15,6 @@ const RightBar = () => {
     setColumns(items);
   }, [items, isFetched]);
 
-  console.log(columns);
   const onDropEnd = (result) => {
     if (!result.destination) return;
     const { source, destination } = result;
