@@ -1,7 +1,7 @@
 import { LikeOutlined } from "@ant-design/icons";
 import { PageHeader, Row, Col, Statistic } from "antd";
 import Box from "../../components/Box";
-import DoughnutCP from "../../components/DonuteChart";
+import PositionChart from "../../components/PositionChart";
 import LineCP from "../../components/LineChart";
 import classes from "./DashboardPage.module.scss";
 
@@ -40,7 +40,7 @@ const Darshboard = () => {
         </Col>
         <Col span={12}>
           <Box>
-            <DoughnutCP />
+            <PositionChart />
           </Box>
         </Col>
 
