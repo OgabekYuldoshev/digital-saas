@@ -1,5 +1,4 @@
 import { Switch, Route, Redirect } from "react-router-dom";
-
 import * as Layouts from "./layouts";
 import { publicRoutes, privateRoutes } from "./routes";
 import useAuth from "./module/auth/hooks/useAuth";
@@ -9,7 +8,7 @@ const App = () => {
   const { isAuthenticated, isFetched } = useAuth();
 
   if (!isFetched) {
-    return <Loading/>
+    return <Loading />
   }
 
   if (!isAuthenticated) {
