@@ -10,7 +10,7 @@ const config = {
     list: ["uz", "oz", "ru", "en"],
   },
   api: {
-    baseUrl: "https://dsaas.uz",
+    baseUrl: "https://backend.dsaas.uz",
     // baseUrl: "https://5747-84-54-120-98.eu.ngrok.io",
 
   },

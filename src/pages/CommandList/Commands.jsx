@@ -1,10 +1,13 @@
 import { ControlOutlined, MoreOutlined, SendOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, PageHeader, Table, Tag } from 'antd';
-import React from 'react'
+import { Button, Dropdown, Menu, Modal, PageHeader, Table, Tag } from 'antd';
+import React, { useState } from 'react'
 import Box from '../../components/Box';
 import classes from './Commands.module.scss';
 import { data } from "./data"
+import InvitedPeople from './components/InvitedPeople';
+
 const Commands = () => {
+  const [modal, setModal] = useState(false)
   const menu = (
     <Menu>
       <Menu.Item icon={<SendOutlined />}>Send Message</Menu.Item>
@@ -62,10 +65,22 @@ const Commands = () => {
         className="site-page-header"
         onBack={() => window.history.back()}
         title="Commands"
+        extra={[
+          <Button
+            type="primary"
+            onClick={() => setModal(true)}
+            key="1"
+          >
+            Invite others
+          </Button>,
+        ]}
       />
       <Box>
         <h2>List</h2>
         <Table columns={columns} dataSource={data} />
+        <Modal title="Invite other people" visible={modal} onCancel={() => setModal(false)} footer={null}>
+          <InvitedPeople />
+        </Modal>
       </Box>
     </div>
   )

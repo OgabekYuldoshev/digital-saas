@@ -6,4 +6,5 @@ export const Create = ({ values, author }) =>
   });
 
 export const List = () => http.request.get("/task/note/");
+
 export const Delete = ({ id }) => http.request.delete(`/task/note/delete/${id}`);

@@ -1,7 +1,7 @@
 import { http } from "../../services";
 
 export const Login = ({ values }) =>
-  http.request.post(`/api/user/auth/login/`, {
+  http.request.post(`/user/auth/login/`, {
     email: values.email,
     password: values.password,
   });
@@ -16,15 +16,21 @@ export const Register = ({ values }) =>
     conformationPassword: values.conformationPassword,
   });
 
-export const Profile = () => http.request.get(`/api/user/auth/user/`);
+export const Profile = () => http.request.get(`/user/auth/user/`);
 
 export const Reset = ({ values }) =>
-  http.request.post(`/api/user/auth/password/reset/`, {
+  http.request.post(`/user/auth/password/reset/`, {
     email: values.email,
   });
 
+export const Invited = ({ email }) =>
+  http.request.post(`/user/auth/invite/`, {
+    email: email,
+  });
+
+
 export const Update = ({ values }) =>
-  http.request.put(`/api/user/auth/user/`, {
+  http.request.put(`/user/auth/user/`, {
     phone_number: values.phoneNumber,
     type: values.type,
     last_name: values.lastName,
@@ -32,7 +38,7 @@ export const Update = ({ values }) =>
   });
 
 export const UpdatePassword = ({ values }) =>
-  http.request.post(`/api/user/auth/password/change/`, {
+  http.request.post(`/user/auth/password/change/`, {
     password: values.password,
     password1: values.confirmPassword,
   });

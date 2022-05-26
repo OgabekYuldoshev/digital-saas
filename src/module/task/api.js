@@ -23,4 +23,6 @@ export const ChangeStatus = ({ status, id }) =>
 
 export const List = () => http.request.get("/task/task/");
 
+export const Single = ({ id }) => http.request.get(`/task/task/${id}`);
+
 export const Delete = ({ id }) => http.request.delete(`/task/task/${id}/`);

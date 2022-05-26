@@ -22,6 +22,17 @@ export const Tasks = (items) => {
   };
 };
 
+export const SingleTask = (item) => {
+  return {
+    id: get(item, "id") || '',
+    description: get(item, "description") || '',
+    deadline: get(item, "deadline") || '',
+    status: STATUS[get(item, "status")] || '',
+    pinnedTo: get(item, "pinned_to") || '',
+    createdAt: get(item, "created_at") || '',
+  }
+}
+
 
 const GetTasks = (item) => {
   return {
