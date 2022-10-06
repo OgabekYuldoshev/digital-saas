@@ -43,3 +43,16 @@ input {
 form {
   width: 100%;
 }
+
+body::-webkit-scrollbar {
+  width: .3rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(113, 113, 113);
+  border-radius: 1rem;
+}

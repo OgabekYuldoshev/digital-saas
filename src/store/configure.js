@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { persistReducer, persistStore } from "redux-persist";
@@ -10,7 +9,7 @@ import middleware, { sagaMiddleware } from "./middleware";
 import rootReducer from "./reducers";
 import rootSaga from "./sagas";
 
-export default (_initialState = {}) => {
+export default () => {
   const composeEnhancer =
     process.env.NODE_ENV === "development" ? composeWithDevTools({}) : compose;
 
