@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["react", "react/jest"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -11,6 +11,10 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": "error"
+    "no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": "off",
+    "no-undef": "off"
   }
 }

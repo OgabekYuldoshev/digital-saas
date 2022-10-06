@@ -10,7 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import config from "./connections";
 import { persist, store } from "./store";
 import { history } from "./services";
-import "./assets/styles/index.scss";
+import "./assets/styles/main.scss";
 import App from "./App";
 import { Auth } from "./module/auth/containers";
 import "antd/dist/antd.min.css";

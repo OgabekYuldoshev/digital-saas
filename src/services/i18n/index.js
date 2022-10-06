@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import HttpApi from "i18next-xhr-backend";
 import { initReactI18next } from "react-i18next";
-
+import * as Yup from '../yup';
 import config from "../../connections";
 
 export const init = ({
@@ -11,7 +11,11 @@ export const init = ({
   onChange,
   debug,
 }) => {
-  i18n.on("languageChanged", (language) => onChange(language));
+  i18n.on('languageChanged', language => {
+    Yup.init(i18n);
+    onChange(language);
+  });
+
 
   i18n
     .use(initReactI18next)
